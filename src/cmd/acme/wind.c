@@ -81,9 +81,11 @@ wininit(Window *w, Window *clone, Rectangle r)
 	w->filemenu = TRUE;
 	w->maxlines = w->body.fr.maxlines;
 	w->autoindent = globalautoindent;
+	w->tabexpand = TRUE;
 	if(clone){
 		w->dirty = clone->dirty;
 		w->autoindent = clone->autoindent;
+        w->tabexpand = clone->tabexpand;
 		textsetselect(&w->body, clone->body.q0, clone->body.q1);
 		winsettag(w);
 	}

@@ -269,6 +269,7 @@ struct Window
 	int		utflastqid;
 	int		utflastboff;
 	int		utflastq;
+	uchar	tabexpand;	/* expand tab char with space*body.tabstop */
 	int		tagsafe;		/* taglines is correct */
 	int		tagexpand;
 	int		taglines;

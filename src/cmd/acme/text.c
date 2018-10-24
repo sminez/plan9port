@@ -777,6 +777,14 @@ texttype(Text *t, Rune r)
 		} else
 			textshow(t, t->file->b.nc, t->file->b.nc, FALSE);
 		return;
+	case 0x09:	/* ^I (TAB) */
+		if(t->w->tabexpand == TRUE){
+			for(i=0; i < t->w->body.tabstop; i++){
+				texttype(t, ' ');
+			}
+			return;
+		}else
+			break;	/* fall through to normal code */
 	case 0x01:	/* ^A: beginning of line */
 		typecommit(t);
 		/* go to where ^U would erase, if not already at BOL */

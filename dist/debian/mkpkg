@@ -1,4 +1,4 @@
-#!/usr/local/plan9/bin/rc
+#!/home/innes/github/plan9/bin/rc
 
 nl='
 '
@@ -55,11 +55,11 @@ for(i)@{
 		dir=$1
 		sub("/[^/]+$", "/", dir)
 		if(dir != lastdir){
-			printf("mkdir -p ''%s''\n", pkg "/usr/local/plan9/" dir);
+			printf("mkdir -p ''%s''\n", pkg "/home/innes/github/plan9/" dir);
 			lastdir = dir
 		}
 		if($1 !~ /\/$/)
-			printf("cp ''%s'' ''%s''\n", plan9 "/" $1, pkg "/usr/local/plan9/" $1)
+			printf("cp ''%s'' ''%s''\n", plan9 "/" $1, pkg "/home/innes/github/plan9/" $1)
 	}' $TREE9/dist/filelist | rc
 	size=`{du -sk $i | awk '{print $1}'}
 	{

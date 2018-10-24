@@ -1,4 +1,4 @@
-#!/usr/local/plan9/bin/rc
+#!/home/innes/github/plan9/bin/rc
 
 rm *.tpost *.troff *.pfb *.pfa *.afm map.sfd
 
@@ -60,7 +60,7 @@ f.generate("'$font^%s.pfb'", "", ("afm",), 72, "map.sfd")
 	for(h in $hex){
 		if(test -f $font$h.pfb){
 			pfb2pfa $font$h.pfb
-			mv $font$h.pfa /usr/local/plan9/postscript/font/$font$h
+			mv $font$h.pfa /home/innes/github/plan9/postscript/font/$font$h
 			afm2troff -h -o 0x$h^00 $font$h.afm >>$font.troff
 			echo 0x$h^00 0x$h^FF $font$h >>$font.tpost
 		}
@@ -73,6 +73,6 @@ f.generate("'$font^%s.pfb'", "", ("afm",), 72, "map.sfd")
 	sam -d $font.troff <$PLAN9/dist/troff/devutf.sam
 	if(~ $font *Mono*)
 		sam -d $font.troff <$PLAN9/dist/troff/mono.sam
-	cp $font.troff /usr/local/plan9/troff/font/devutf/$font
-	cp $font.tpost /usr/local/plan9/postscript/troff/$font
+	cp $font.troff /home/innes/github/plan9/troff/font/devutf/$font
+	cp $font.tpost /home/innes/github/plan9/postscript/troff/$font
 }

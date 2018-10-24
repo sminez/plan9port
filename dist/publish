@@ -1,4 +1,4 @@
-#!/usr/local/plan9/bin/rc
+#!/home/innes/github/plan9/bin/rc
 
 dir=$9fansweb
 if (~ $#dir 0) {
@@ -21,8 +21,8 @@ cp ss.html $root/screenshots/index.html
 @{cd ../unix/man && mk push}
 @{cd ../unix && mk push}
 
-rm -rf $root/../usr/local/plan9
-mkdir -p $root/../usr/local/plan9
+rm -rf $root/../home/innes/github/plan9
+mkdir -p $root/../home/innes/github/plan9
 @{cd ..; git archive HEAD} | @{cd $root/../usr/local/plan9 && u tar xf -}
 for(d in `{find $root/../usr/local/plan9 -type d}) {
 	9 rc ./mkdirlist $d `{echo $d | sed 's;.*/usr;/usr;'} >t1 && mv t1 $d/index.html

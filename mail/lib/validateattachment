@@ -1,4 +1,4 @@
-#!/usr/local/plan9/bin/rc
+#!/home/innes/github/plan9/bin/rc
 rfork n
 
 . 9.rc

@@ -1,4 +1,4 @@
-#!/usr/local/plan9/bin/rc
+#!/home/innes/github/plan9/bin/rc
 builtin cd $1
 for (i in [a-z0-9:]*.[0-9]*) {
 	b=`{echo $i | sed 's/\..*//'}

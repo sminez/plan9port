@@ -1,4 +1,4 @@
-#!/usr/local/plan9/bin/rc
+#!/home/innes/github/plan9/bin/rc
 
 echo '<pre>'
 echo '<a href="/plan9port">Plan 9 from User Space</a> '$2

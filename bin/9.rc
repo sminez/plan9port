@@ -1,7 +1,7 @@
-#!/usr/local/plan9/bin/rc
+#!/home/innes/github/plan9/bin/rc
 
 if(~ $#PLAN9 0)
-	PLAN9=/usr/local/plan9
+	PLAN9=/home/innes/github/plan9
 if(! ~ $path(1) $PLAN9/bin)
 	path=($PLAN9/bin $path)
 

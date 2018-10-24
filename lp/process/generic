@@ -1,4 +1,4 @@
-#!/usr/local/plan9/bin/rc
+#!/home/innes/github/plan9/bin/rc
 # Tries to determine what type of file you are printing and do the correct
 # thing with it.
 # It currently knows about images, troff intermediate, and ascii files.

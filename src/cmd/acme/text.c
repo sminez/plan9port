@@ -243,7 +243,7 @@ textload(Text *t, uint q0, char *file, int setqid)
 		dbuf = nil;
 		while((n=dirread(fd, &dbuf)) > 0){
 			for(i=0; i<n; i++){
-                /* To view dotfiles, run ls -a in a win window */
+				/* To view dotfiles, run ls -a in a win window */
 				if(dbuf[i].name[0] == '.'){
 					continue; /* do not list dot files */
 				}
@@ -316,7 +316,7 @@ textload(Text *t, uint q0, char *file, int setqid)
 	free(d);
 	return q1-q0;
 
-    Rescue:
+	Rescue:
 	close(fd);
 	return -1;
 }
@@ -328,7 +328,7 @@ textbsinsert(Text *t, uint q0, Rune *r, uint n, int tofile, int *nrp)
 	int i, initial;
 
 	if(t->what == Tag){	/* can't happen but safety first: mustn't backspace over file name */
-    Err:
+	Err:
 		textinsert(t, q0, r, n, tofile);
 		*nrp = n;
 		return q0;
@@ -781,7 +781,7 @@ texttype(Text *t, Rune r)
 		} else
 			textshow(t, t->file->b.nc, t->file->b.nc, FALSE);
 		return;
-	case 0x09:	/* ^I (TAB) */
+	case 0x09:	/* ^i (TAB) */
 		if(t->w->tabexpand == TRUE){
 			for(i=0; i < t->w->body.tabstop; i++){
 				texttype(t, ' ');
@@ -789,7 +789,7 @@ texttype(Text *t, Rune r)
 			return;
 		}else
 			break;	/* fall through to normal code */
-	case 0x01:	/* ^A: beginning of line */
+	case 0x01:	/* ^a: beginning of line */
 		typecommit(t);
 		/* go to where ^U would erase, if not already at BOL */
 		nnb = 0;
@@ -797,26 +797,25 @@ texttype(Text *t, Rune r)
 			nnb = textbswidth(t, 0x15);
 		textshow(t, t->q0-nnb, t->q0-nnb, TRUE);
 		return;
-	case 0x05:	/* ^E: end of line */
+	case 0x05:	/* ^e: end of line */
 		typecommit(t);
 		q0 = t->q0;
 		while(q0<t->file->b.nc && textreadc(t, q0)!='\n')
 			q0++;
 		textshow(t, q0, q0, TRUE);
 		return;
-	case Kcmd+'c':	/* %C: copy */
+	case 0x03:	/* ^c: copy */
 		typecommit(t);
 		cut(t, t, nil, TRUE, FALSE, nil, 0);
 		return;
-	case Kcmd+'z':	/* %Z: undo */
+	case 0x1A:	/* ^z: undo */
 	 	typecommit(t);
 		undo(t, nil, nil, TRUE, 0, nil, 0);
 		return;
-	case Kcmd+'Z':	/* %-shift-Z: redo */
-	 	typecommit(t);
+	case 0x12:  /* ^r: redo */
+		typecommit(t);
 		undo(t, nil, nil, FALSE, 0, nil, 0);
-		return;
-	case Kcmd+'s':	/* %S: save/put file */
+	case 0x13:	/* ^s: save/put file */
 		typecommit(t);
 		put(&t->w->body, nil, nil, XXX, XXX, nil, 0);
 		return;
@@ -844,7 +843,7 @@ texttype(Text *t, Rune r)
 	}
 	/* cut/paste must be done after the seq++/filemark */
 	switch(r){
-	case Kcmd+'x':	/* %X: cut */
+	case 0x18:	/* ^x: cut */
 		typecommit(t);
 		if(t->what == Body){
 			seq++;
@@ -854,7 +853,7 @@ texttype(Text *t, Rune r)
 		textshow(t, t->q0, t->q0, 1);
 		t->iq1 = t->q0;
 		return;
-	case Kcmd+'v':	/* %V: paste */
+	case 0x16:	/* ^v: paste */
 		typecommit(t);
 		if(t->what == Body){
 			seq++;
@@ -1291,7 +1290,7 @@ textsetselect(Text *t, uint q0, uint q1)
 		frdrawsel(&t->fr, frptofchar(&t->fr, p1), p1, t->fr.p1, 0);
 	}
 
-    Return:
+	Return:
 	t->fr.p0 = p0;
 	t->fr.p1 = p1;
 }

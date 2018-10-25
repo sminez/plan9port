@@ -1,4 +1,37 @@
-This is a port of many Plan 9 libraries and programs to Unix.
+This is my patched version of the port of many Plan 9 libraries and programs to
+Unix.
+
+See https://github.com/9fans/plan9port/compare/master...sminez:master for
+details of the current diff from the main repo.
+
+Modifications
+-------------
+
+- Added custom color scheme via config.h
+- Default font is Terminess Nerd Font
+- Up and down arrow keys move the cursor, not scroll the page
+- `Tabexpand` command for converting `\t` to spaces (controlled by tabstop)
+- Don't show dot-files in directory listings
+
+
+Bindings
+--------
+
+Further bindings need to be defined in the switch statement beginning
+src/cmd/acme/text.c:687
+
+- Ctrl
+  - c: copy
+  - x: cut
+  - v: paste
+  - z: undo
+  - r: redo
+  - s: save
+  - e: move to end of line
+  - a: move to begining of line
+  - f: filename completion
+  - u: kill line
+  - w: kill word (backwords)
 
 Installation
 ------------

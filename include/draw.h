@@ -28,6 +28,7 @@ struct Mux;
 extern	int	Rfmt(Fmt*);
 extern	int	Pfmt(Fmt*);
 
+/* colors are 0x<rgb hex color code>FF */
 #define 	DOpaque		0xFFFFFFFF
 #define 	DTransparent	0x00000000		/* only useful for allocimage memfillcolor */
 #define 	DBlack		0x000000FF
@@ -57,6 +58,50 @@ extern	int	Pfmt(Fmt*);
 
 #define 	DNotacolor	0xFFFFFF00
 #define 	DNofill		DNotacolor
+
+/* My custom gruvbox colors */
+/* See colour-defs.sh in ~/bin/scripts for preview */
+#define		GruvDark0	0x1D2021FF
+#define		GruvDark1	0x282828FF
+#define		GruvDark2	0x32302FFF
+#define		GruvDark3	0x3C3836FF
+#define		GruvDark4	0x504945FF
+#define		GruvDark5	0x665C54FF
+#define		GruvDark6	0x7C6F64FF
+
+#define		GruvGray	0x928374FF
+
+#define		GruvLight0	0xF9F5D7FF
+#define		GruvLight1	0xFBF1C7FF
+#define		GruvLight2	0xF2E5BCFF
+#define		GruvLight3	0xEBDBB2FF
+#define		GruvLight4	0xD5C4A1FF
+#define		GruvLight5	0xBDAE93FF
+#define		GruvLight6	0xA89984FF
+
+#define		GruvBrightRed		0xFB4934FF
+#define		GruvBrightGreen		0xB8BB26FF
+#define		GruvBrightYellow	0xFABD2FFF
+#define		GruvBrightBlue		0x83A598FF
+#define		GruvBrightPurple	0xD3869BFF
+#define		GruvBrightAqua		0x8EC07CFF
+#define		GruvBrightOrange	0xFE8019FF
+
+#define		GruvRed		0xCC241DFF
+#define		GruvGreen	0x98971AFF
+#define		GruvYellow	0xD79921FF
+#define		GruvBlue	0x458588FF
+#define		GruvPurple	0xB16286FF
+#define		GruvAqua	0x689D6AFF
+#define		GruvOrange	0xD65D0EFF
+
+#define		GruvFadedRed	0x9D0006FF
+#define		GruvFadedGreen	0x79740EFF
+#define		GruvFadedYellow	0xB57614FF
+#define		GruvFadedBlue	0x076678FF
+#define		GruvFadedPurple	0x8F3F71FF
+#define		GruvFadedAqua	0x427B58FF
+#define		GruvFadedOrange	0xAF3A03FF
 
 enum
 {

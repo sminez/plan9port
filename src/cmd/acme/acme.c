@@ -11,6 +11,8 @@
 #include <libsec.h>
 #include "dat.h"
 #include "fns.h"
+#include "config.h"
+
 	/* for generating syms in mkfile only: */
 	#include <bio.h>
 	#include "edit.h"
@@ -71,6 +73,11 @@ threadmain(int argc, char *argv[])
 
 	ncol = -1;
 
+    /* Disable follow mouse by default */
+    bartflag = TRUE;
+    /* Auto indent by default */
+    globalautoindent = TRUE;
+
 	loadfile = nil;
 	ARGBEGIN{
 	case 'D':
@@ -79,10 +86,10 @@ threadmain(int argc, char *argv[])
 		}
 		break;
 	case 'a':
-		globalautoindent = TRUE;
+		globalautoindent = FALSE;
 		break;
 	case 'b':
-		bartflag = TRUE;
+		bartflag = FALSE;
 		break;
 	case 'c':
 		p = ARGF();
@@ -1042,19 +1049,33 @@ iconinit(void)
 	Image *tmp;
 
 	if(tagcols[BACK] == nil) {
-		/* Blue */
-		tagcols[BACK] = allocimagemix(display, DPalebluegreen, DWhite);
-		tagcols[HIGH] = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DPalegreygreen);
-		tagcols[BORD] = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DPurpleblue);
-		tagcols[TEXT] = display->black;
-		tagcols[HTEXT] = display->black;
+		/* /1* Blue *1/ */
+		/* tagcols[BACK] = allocimagemix(display, DPalebluegreen, DWhite); */
+		/* tagcols[HIGH] = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DPalegreygreen); */
+		/* tagcols[BORD] = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DPurpleblue); */
+		/* tagcols[TEXT] = display->black; */
+		/* tagcols[HTEXT] = display->black; */
 
-		/* Yellow */
-		textcols[BACK] = allocimagemix(display, DPaleyellow, DWhite);
-		textcols[HIGH] = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DDarkyellow);
-		textcols[BORD] = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DYellowgreen);
-		textcols[TEXT] = display->black;
-		textcols[HTEXT] = display->black;
+		/* /1* Yellow *1/ */
+		/* textcols[BACK] = allocimagemix(display, DPaleyellow, DWhite); */
+		/* textcols[HIGH] = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DDarkyellow); */
+		/* textcols[BORD] = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DYellowgreen); */
+		/* textcols[TEXT] = display->black; */
+		/* textcols[HTEXT] = display->black; */
+
+		/* Tag bar */
+		tagcols[BACK]	= allocimage(display, Rect(0,0,1,1), RGBA32, 1, C_TAGBG);
+		tagcols[HIGH]	= allocimage(display, Rect(0,0,1,1), RGBA32, 1, C_TAGHLBG);
+		tagcols[BORD]	= allocimage(display, Rect(0,0,1,1), RGBA32, 1, C_COLBUTTON);
+		tagcols[TEXT]	= allocimage(display, Rect(0,0,1,1), RGBA32, 1, C_TAGFG);
+		tagcols[HTEXT]	= allocimage(display, Rect(0,0,1,1), RGBA32, 1, C_TAGHLFG);
+
+		/* Text areas */
+		textcols[BACK] 	= allocimage(display, Rect(0,0,1,1), RGBA32, 1, C_TXTBG);
+		textcols[HIGH] 	= allocimage(display, Rect(0,0,1,1), RGBA32, 1, C_TXTHLBG);
+		textcols[BORD] 	= allocimage(display, Rect(0,0,1,1), RGBA32, 1, C_SCROLLBG);
+		textcols[TEXT] 	= allocimage(display, Rect(0,0,1,1), RGBA32, 1, C_TXTFG);
+		textcols[HTEXT] = allocimage(display, Rect(0,0,1,1), RGBA32, 1, C_TXTHLFG);
 	}
 
 	r = Rect(0, 0, Scrollwid+ButtonBorder, font->height+1);
@@ -1078,15 +1099,19 @@ iconinit(void)
 	r.max.x -= ButtonBorder;
 	border(modbutton, r, ButtonBorder, tagcols[BORD], ZP);
 	r = insetrect(r, ButtonBorder);
-	tmp = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DMedblue);
+	/* tmp = allocimage(display, Rect(0,0,1,1), screen->chan, 1, DMedblue); */
+	tmp = allocimage(display, Rect(0,0,1,1), RGBA32, 1, C_TMPBUTTON);
 	draw(modbutton, r, tmp, nil, ZP);
 	freeimage(tmp);
 
 	r = button->r;
-	colbutton = allocimage(display, r, screen->chan, 0, DPurpleblue);
+	/* colbutton = allocimage(display, r, screen->chan, 0, DPurpleblue); */
+	colbutton = allocimage(display, r, RGBA32, 1, C_WINBUTTON);
 
-	but2col = allocimage(display, r, screen->chan, 1, 0xAA0000FF);
-	but3col = allocimage(display, r, screen->chan, 1, 0x006600FF);
+	/* but2col = allocimage(display, r, screen->chan, 1, 0xAA0000FF); */
+	/* but3col = allocimage(display, r, screen->chan, 1, 0x006600FF); */
+	but2col = allocimage(display, r, screen->chan, 1, C_BUTTON2HL);
+    but3col = allocimage(display, r, screen->chan, 1, C_BUTTON3HL);
 }
 
 /*

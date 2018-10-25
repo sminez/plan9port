@@ -20,6 +20,7 @@ static Rune Lheader[] = {
 	'S', 'o', 'r', 't', ' ',
 	'Z', 'e', 'r', 'o', 'x', ' ',
 	'D', 'e', 'l', 'c', 'o', 'l', ' ',
+	'w', 'i', 'n', ' ',
 	0
 };
 
@@ -43,7 +44,7 @@ colinit(Column *c, Rectangle r)
 	r1.min.y = r1.max.y;
 	r1.max.y += Border;
 	draw(screen, r1, display->black, nil, ZP);
-	textinsert(t, 0, Lheader, 38, TRUE);
+	textinsert(t, 0, Lheader, 42, TRUE);
 	textsetselect(t, t->file->b.nc, t->file->b.nc);
 	draw(screen, t->scrollr, colbutton, nil, colbutton->r.min);
 	c->safe = TRUE;
@@ -401,7 +402,7 @@ colgrow(Column *c, Window *w, int but)
 			dnl -= l;
 		}
 	}
-    Pack:
+	Pack:
 	/* pack everyone above */
 	y1 = cr.min.y;
 	for(j=0; j<i; j++){

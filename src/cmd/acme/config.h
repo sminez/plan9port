@@ -3,9 +3,40 @@
  * ========
  *
  * Custom definitions for use in the rest of my modifed version of acme.
- * For now this is just an easier to find place to store the color-scheme.
  *
+ * As my C isn't great, there are a couple of configurable things that I
+ * am leaving in their original position because it's less hassle:
+ * - cols.c:15          New Column initial tags
+ * - rows.c:16          Main ACME header tags
+ *
+ * NOTE: You need to also update the character count in the textinsert
+ *       call for each of these arrays.
+ *
+ * NOTE: The window tags (wind.c:451) are a little different, I think
+ *       due to the window resizing logic(?)
+ *       Leaving them alone for now...
  */
+
+/*
+ * By default, ACME expects to be given two fonts: the first is variable
+ * width and the second is monospace. In practice, it doesn't care about
+ * the nature of each font, so long as it can load it!
+ *
+ * Run `fontsrv -p .` to view the available font names and remember to
+ * escape spaces in filepaths.
+ *
+ * Alternative fonts
+ * -----------------
+ * /mnt/font/FiraCode-Retina/12a/font
+ * /mnt/font/Noto\ Mono/12a/font
+ * /mnt/font/Noto\ Sans\ Regular/12a/font
+ * /mnt/font/Source\ Code\ Pro/12a/font
+ */
+char *fontnames[2] =
+{
+    "/mnt/font/Terminess\ \(TTF\)\ Nerd\ Font\ Complete/14a/font",
+	"/mnt/font/SFNS\ Display/12a/font"
+};
 
 
 /*
@@ -23,10 +54,9 @@
  *  in the middle of C_COLBUTTON. C_SCROLLBG is plain and simple
  *  your scrollbars background color.
  *
- *  the last two defines are for defining the color of the specific
+ *  the last two defines are for setting the color of the specific
  *  buttons highlight background.
  */
-
 #define C_TAGBG			0x9DBFB2FF  // gruvbox bright_blue lightened 10%
 #define C_TAGHLBG		0x458588FF  // gruvbox neutral blue
 #define C_TAGFG			0x3C3836FF  // gruvbox dark 3

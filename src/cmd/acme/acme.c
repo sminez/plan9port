@@ -39,12 +39,11 @@ enum{
 };
 Rune	snarfrune[NSnarf+1];
 
-char		*fontnames[2] =
-{
-	/* "/lib/font/bit/lucsans/euro.8.font", */
-    "/mnt/font/Terminess\ \(TTF\)\ Nerd\ Font\ Complete/14a/font",
-	"/lib/font/bit/lucm/unicode.9.font"
-};
+/* char		*fontnames[2] = */
+/* { */
+/*     "/mnt/font/Terminess\ \(TTF\)\ Nerd\ Font\ Complete/14a/font", */
+/* 	"/mnt/font/SFNS\ Display/12a/font" */
+/* }; */
 
 Command *command;
 

@@ -1,4 +1,4 @@
-#!/home/innes/github/plan9/bin/rc
+#!/home/innes/Personal/plan9/bin/rc
 
 verbose=no
 if(~ $1 -v)

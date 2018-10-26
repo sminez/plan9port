@@ -1,4 +1,4 @@
-#!/home/innes/github/plan9/bin/rc
+#!/home/innes/Personal/plan9/bin/rc
 # fn sigexit { rm -f $LPSPOOL/$LPDEST/.$pid.* $LPSPOOL/$LPDEST/$pid.* $LPSPOOL/$LPDEST }
 if (! ~ $DEBUG '') flag x +
 

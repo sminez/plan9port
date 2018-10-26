@@ -1,10 +1,10 @@
-#!/home/innes/github/plan9/bin/rc
+#!/home/innes/Personal/plan9/bin/rc
 
 cd /scratch/rsc/plan9
 cvs up -dAP
 cd dist; ./mkfilelist >filelist
-cp filelist /home/innes/github/plan9/dist
-cd /home/innes/github/plan9/dist/debian
+cp filelist /home/innes/Personal/plan9/dist
+cd /home/innes/Personal/plan9/dist/debian
 
 rm -rf dists pool
 mkdir -p dists pool

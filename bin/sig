@@ -1,4 +1,4 @@
-#!/home/innes/github/plan9/bin/rc
+#!/home/innes/Personal/plan9/bin/rc
 # Usage: sig key ...
 #	prints out function signatures by grepping the manual
 

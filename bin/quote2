@@ -1,4 +1,4 @@
-#!/home/innes/github/plan9/bin/rc
+#!/home/innes/Personal/plan9/bin/rc
 
 cmd = `{quote1 $* | tail -1}
 if (~ $#cmd 0) {

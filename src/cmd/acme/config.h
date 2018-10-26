@@ -6,15 +6,15 @@
  *
  * As my C isn't great, there are a couple of configurable things that I
  * am leaving in their original position because it's less hassle:
- * - cols.c:15          New Column initial tags
- * - rows.c:16          Main ACME header tags
+ * - cols.c:15      New Column initial tags
+ * - rows.c:16	    Main ACME header tags
  *
  * NOTE: You need to also update the character count in the textinsert
  *       call for each of these arrays.
  *
  * NOTE: The window tags (wind.c:451) are a little different, I think
- *       due to the window resizing logic(?)
- *       Leaving them alone for now...
+ *	     due to the window resizing logic(?)
+ *	     Leaving them alone for now...
  */
 
 /*
@@ -34,7 +34,7 @@
  */
 char *fontnames[2] =
 {
-    "/mnt/font/Terminess\ \(TTF\)\ Nerd\ Font\ Complete/14a/font",
+	"/mnt/font/Terminess\ \(TTF\)\ Nerd\ Font\ Complete/14a/font",
 	"/mnt/font/SFNS\ Display/12a/font"
 };
 
@@ -57,7 +57,7 @@ char *fontnames[2] =
  *  the last two defines are for setting the color of the specific
  *  buttons highlight background.
  */
-#define C_TAGBG			0x9DBFB2FF  // gruvbox bright_blue lightened 10%
+#define C_TAGBG         0x9DBFB2FF  // gruvbox bright blue lightened 10%
 #define C_TAGHLBG		0x458588FF  // gruvbox neutral blue
 #define C_TAGFG			0x3C3836FF  // gruvbox dark 3
 #define C_TAGHLFG		0x3C3836FF  // gruvbox dark 3
@@ -67,8 +67,10 @@ char *fontnames[2] =
 #define C_TXTFG			0x3C3836FF  // gruvbox dark 3
 #define C_TXTHLFG		0x3C3836FF  // gruvbox dark 3
 
-#define C_WINBUTTON		0x5F9FA2FF  // gruvbox neutral blue lightened 10%
-#define C_COLBUTTON		0x458588FF  // gruvbox neutral blue
+/* #define C_WINBUTTON		0x5F9FA2FF  // gruvbox neutral blue lightened 10% */
+/* #define C_COLBUTTON		0x458588FF  // gruvbox neutral blue */
+#define C_WINBUTTON		0x83A598FF  // gruvbox bright blue
+#define C_COLBUTTON		0x83A598FF  // gruvbox bright blue
 #define C_TMPBUTTON		0xD3869BFF  // gruvbox bright purple
 #define C_SCROLLBG		0xA89984FF  // gruvbox light 6
 

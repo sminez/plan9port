@@ -34,8 +34,10 @@
  */
 char *fontnames[2] =
 {
-	"/mnt/font/Terminess\ \(TTF\)\ Nerd\ Font\ Complete/14a/font",
-	"/mnt/font/SFNS\ Display/12a/font"
+ 	"/lib/font/bit/lucm/unicode.9.font",
+ 	"/lib/font/bit/lucm/unicode.9.font"
+	/* "/mnt/font/Terminess\ \(TTF\)\ Nerd\ Font\ Complete/14a/font", */
+	/* "/mnt/font/SFNS\ Display/12a/font" */
 };
 
 

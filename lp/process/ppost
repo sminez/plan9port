@@ -1,4 +1,4 @@
-#!/home/innes/Personal/plan9/bin/rc
+#!/usr/local/plan9/bin/rc
 # converts a regular ascii file to PostScript
 if (! ~ $DEBUG '') flag x +
 PATCH='%%Patch from lp'

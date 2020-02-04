@@ -27,5 +27,4 @@ cd $PLAN9
 	X ,s;'$old'($|/|});'$new'\1;g
 	X/'"'"'/w
 	q
-' | sam -d `cat lib/moveplan9.files` >/dev/null 2>&1
-
+' | "$PLAN9"/bin/sam -d `cat lib/moveplan9.files` >/dev/null 2>&1
